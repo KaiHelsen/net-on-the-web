@@ -1,0 +1,24 @@
+@page
+@using net_on_the_web.Models
+@model net_on_the_web.Pages.Classes
+
+@{
+}
+<table class="table">
+    <tr>
+        <th scope="col">Class Id</th>
+        <th scope="col">Class Name</th>
+        <th scope="col">Room</th>
+        <th scope="col">Assigned Teacher</th>
+    </tr>
+    @foreach (ClassRoom myClass in Model.MyClasses)
+    {
+        <tr>
+            <td scope="row">
+                <b>@myClass.Id</b>
+            </td>
+            <td>@myClass.ClassName</td>
+            <td>@myClass.MyTeacher.Name</td>
+        </tr>
+    }
+</table>

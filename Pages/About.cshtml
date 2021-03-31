@@ -1,0 +1,22 @@
+﻿@page
+@model net_on_the_web.Pages.AboutModel
+@{
+}
+@* <p>@Model.Message the time is @DateTime.Now</p> *@
+<table class="table">
+    <tr>
+        <th scope="col">Student Id</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Assigned Class</th>
+        <th scope="col">Assigned Teacher</th>
+    </tr>
+    @for (int i = 0; i < 20; i++)
+    {
+        <tr>
+            <td scope="row">
+                <b>@Model._students.GetStudent(i).Id</b>
+            </td>
+            <td>@Model._students.GetStudent(i).Name</td>
+        </tr>
+    }
+</table>

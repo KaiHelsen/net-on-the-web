@@ -21,20 +21,14 @@ namespace net_on_the_web.Models
             get => _id;
         }
 
-        private int _classId;
-
-        public int ClassId
-        {
-            get => _classId;
-            set => _classId = value;
-        }
+        public ClassRoom myClass;
 
         public Teacher(string name, ClassRoom classRoom)
         {
             Random rand = new Random();
             this._id = rand.Next(5000);
             this.Name = name;
-            // this.ClassId = classRoom.Id;
+            this.myClass = classRoom;
         }
     }
 }

@@ -10,12 +10,12 @@ namespace net_on_the_web.Pages
 {
     public class AboutModel : PageModel
     {
-        
-        public StudentList _students;
+        public School mySchool = new School(10, 20, 40);
+        public Student[] _students;
 
         public void OnGet()
         {
-            _students = new StudentList(20);
+            _students = mySchool.Students.GetStudentArray();
         }
     }
 }

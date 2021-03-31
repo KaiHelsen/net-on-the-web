@@ -15,7 +15,7 @@ namespace net_on_the_web.Models
         {
             for (int i = 0; i < classAmount; i++)
             {
-                ClassRoom newRoom = new ClassRoom("Class", "20B");
+                ClassRoom newRoom = new ClassRoom("Class " + i + "" , "20B");
                 newRoom.MyTeacher = new Teacher(RandomNameGenerator.generate(), newRoom);
                 
                 _classesList.Add(newRoom);
@@ -23,11 +23,23 @@ namespace net_on_the_web.Models
 
             _teachers = new TeacherList(teacherAmount);
             Students = new StudentList(studentAmount);
+            
+            //assign a teacher to every class
+            foreach (ClassRoom classRoom in _classesList)
+            {
+                int index = new Random().Next(_teachers.getTeacherCount());
+                
+                classRoom.MyTeacher = _teachers._teachers[index];
+                _teachers._teachers[index].myClass = classRoom;
+            }
+            
+            //assign students to classes
+            foreach (Student student in Students.GetStudentArray())
+            {
+                student.MyClass = _classesList[new Random().Next(_classesList.Count)];
+            }
         }
 
-        /**
-         * 
-         */
         public ClassRoom[] GetClasses()
         {
             return _classesList.ToArray();

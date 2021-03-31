@@ -4,7 +4,7 @@ namespace net_on_the_web.Models
 {
     public class ClassRoom
     {
-        private int _idCounter = 0;
+        private static int _idCounter = 0;
         private int _id;
         public int Id { get => _id;}
         private string _className;

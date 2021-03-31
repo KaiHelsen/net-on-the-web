@@ -7,12 +7,11 @@ namespace net_on_the_web.Pages
 {
     public class Classes : PageModel
     {
-        public School _mySchool;
+        public School _mySchool = new School(10,20,30);
         public ClassRoom[] MyClasses;
         
         public void OnGet()
         {
-            _mySchool = new School(3, 12, 30);
             MyClasses = _mySchool.GetClasses();
         }
     }

@@ -8,14 +8,14 @@ namespace net_on_the_web.Models
         private static int _idCounter = 0;
         public int Id;
         public string Name;
-        public int ClassId;
+        public ClassRoom MyClass;
 
-        public Student(string _name, int _classId)
+        public Student(string _name, ClassRoom classRoom)
         {
             Random rand = new Random();
             this.Id = _idCounter++;
             this.Name = _name;
-            this.ClassId = _classId;
+            this.MyClass = classRoom;
         }
 
         public void ResetIdCounter()

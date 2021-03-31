@@ -5,7 +5,7 @@ namespace net_on_the_web.Models
 {
     public class TeacherList
     {
-        private List<Teacher> _teachers = new List<Teacher>();
+        public List<Teacher> _teachers = new List<Teacher>();
 
         public TeacherList(int AmountOfTeachers)
         {
@@ -22,6 +22,21 @@ namespace net_on_the_web.Models
         public Teacher[] getTeachers()
         {
             return _teachers.ToArray();
+        }
+
+        public int getTeacherCount()
+        {
+            return _teachers.Count;
+        }
+
+        public Teacher getTeacherByIndex(int index)
+        {
+            return _teachers[index];
+        }
+
+        public void setTeacherClassRoom(int index, ClassRoom classRoom)
+        {
+            _teachers[index].myClass = classRoom;
         }
     }
 }

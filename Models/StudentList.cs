@@ -13,7 +13,7 @@ namespace net_on_the_web.Models
             int classid = 20;
             for (int i = 0; i < amountOfStudents; i++)
             {
-                _students.Add(new Student(this.GetRandomName(), classid));
+                _students.Add(new Student(this.GetRandomName(), null));
             }
         }
 
@@ -37,6 +37,18 @@ namespace net_on_the_web.Models
                 throw new IndexOutOfRangeException();
             }
             return this._students[index];
+        }
+        
+        public void SetStudentClass(Student student, ClassRoom classRoom)
+        {
+            if (_students.Contains((student)))
+            {
+                _students.Find(x => x == student).MyClass = classRoom;
+            }
+            else
+            {
+                _students.Add(new Student(RandomNameGenerator.generate(), classRoom));
+            }
         }
     }
 }

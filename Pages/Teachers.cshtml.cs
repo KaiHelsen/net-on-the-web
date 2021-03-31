@@ -7,12 +7,12 @@ namespace net_on_the_web.Pages
     public class Teachers : PageModel
     {
         
-        public TeacherList _myTeachers;
-        public Teacher[] MyClasses;
+        public School mySchool = new School(10, 20, 40);
+        public Teacher[] MyTeachers;
         public void OnGet()
         {
-            _myTeachers = new TeacherList(12);
-            MyClasses = _myTeachers.getTeachers();
+            MyTeachers = mySchool._teachers.getTeachers();
+
         }
     }
 }

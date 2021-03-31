@@ -1,4 +1,5 @@
 ﻿@page
+@using net_on_the_web.Models
 @model net_on_the_web.Pages.AboutModel
 @{
 }
@@ -10,13 +11,15 @@
         <th scope="col">Assigned Class</th>
         <th scope="col">Assigned Teacher</th>
     </tr>
-    @for (int i = 0; i < 20; i++)
+    @foreach(Student student in Model._students)
     {
         <tr>
             <td scope="row">
-                <b>@Model._students.GetStudent(i).Id</b>
+                <b>@student.Id</b>
             </td>
-            <td>@Model._students.GetStudent(i).Name</td>
+            <td>@student.Name</td>
+            <td>@student.MyClass.ClassName</td>
+            <td>@student.MyClass.MyTeacher.Name</td>
         </tr>
     }
 </table>

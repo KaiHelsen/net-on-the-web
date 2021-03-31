@@ -9,16 +9,14 @@
     <tr>
         <th scope="col">Teacher Id</th>
         <th scope="col">Teacher Name</th>
-        <th scope="col">Assigned Class</th>
     </tr>
-    @foreach(Teacher teach in Model.MyClasses )
+    @foreach(Teacher teach in Model.MyTeachers )
     {
         <tr>
             <td scope="row">
                 <b>@teach.Id</b>
             </td>
             <td>@teach.Name</td>
-            <td>@teach.ClassId</td>
         </tr>
     }
 </table>
